@@ -1,2 +1,2 @@
-n = int(input())
-print(n+1)
+# 공넣기
+N,M = map(int, input().split())
