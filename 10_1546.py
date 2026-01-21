@@ -1,10 +1,11 @@
 # 평균
 n = int(input())
-s1,s2,s3 = map(int, input().split())
+scores = list(map(int, input().split())) # 점수가 n만큼
 
-m = max(s1,s2,s3)
-s1new = s1/m*100
-s2new = s2/m*100
-s3new = s3/m*100
+m = max(scores)
 
-print((s1new+s2new+s3new)/3)
+newscores = []
+for s in scores:
+    newscores.append(s/m*100)
+
+print(sum(newscores)/n)
