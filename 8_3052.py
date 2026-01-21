@@ -1,7 +1,7 @@
 # 나머지
-rest = [0]*10
-for i in list(range(1,11)):
+rest = []
+for _ in range(10):
     n = int(input())
-    rest[i+1] = n%42
+    rest.append(n%42)
 
 print(len(set(rest))) # 파이썬에서는 중복 제거가 set
