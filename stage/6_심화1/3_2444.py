@@ -1,4 +1,3 @@
 n = int(input())
-blank = ''*(2*n)
-for i in range(n):
-    blank[]='*' # 별을 채워넣기
+for i in range(1,n+1):
+    print('*'*(2*i-1))
