@@ -8,9 +8,9 @@ for i in range(len(alist)):
     diff = ord(alist[i])-ord('A')
     if diff == ord('S')-ord('A'):
         num = 7
-    if diff > ord('S')-ord('A') and diff < ord('W')-ord('A'):
+    elif diff > ord('S')-ord('A') and diff < ord('W')-ord('A'):
         num = 8
-    if diff >= ord('W')-ord('A'):
+    elif diff >= ord('W')-ord('A'):
         num = 9
     else:
         num = 2+diff//3
