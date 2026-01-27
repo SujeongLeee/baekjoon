@@ -1,17 +1,23 @@
 n = int(input())
-l = []
-b = []
+pair = []
 
 for _ in range(n):
     ldist, bdist = map(int, input().split())
-    l.append(ldist)
-    b.append(bdist)
+    pair.append([ldist, bdist])
 
-# 둘중 하나라도 차이가 10 이상이면 안겹치고
-# 둘다 10 이하면 겹친다.
+overlap = 0
+for i in range(n-1):
+    # print('i:',i)
+    for j in range(1,n-i):
+        # print('j:',j)
+        l = abs(pair[i][0]-pair[i+j][0])
+        r = abs(pair[i][1]-pair[i+j][1])
+        if l>= 10 or r >= 10: 
+            overlap += 0
+        else:
+            ll = abs(pair[i][0]+10 - pair[i+j][0])
+            rr = abs(pair[i+j][1]+10 - pair[i][1])
+            overlap += ll*rr
 
-
-# print(l)
-# print(b)
-# entire = (10**2)*3
-# overlap = 
+# print(overlap)
+print((10**2)*3-overlap)
