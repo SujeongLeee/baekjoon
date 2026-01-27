@@ -21,3 +21,5 @@ for i in range(n-1):
 
 # print(overlap)
 print((10**2)*3-overlap)
+
+# 어떤 영역이 여러번 겹치는 경우에는 ???????
