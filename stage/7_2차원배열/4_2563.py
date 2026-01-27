@@ -1,5 +1,26 @@
+# n = int(input())
+# mat = [[0]*100 for _ in range(100)]
+# for _ in range(n):
+#     x,y = map(int, input().split())
+#     for i in range(((100-y)-9-1),(100-y)):
+#         for j in range((x-1),((x-1)+9+1)):
+#             mat[i][j]=1  
+# print(sum(row.count(1) for row in mat))
+
+
+
+
+# 도형 뒤집으면 똑같으니까
 n = int(input())
 mat = [[0]*100 for _ in range(100)]
+for _ in range(n):
+    x,y = map(int, input().split())
+    for i in range(y, y+10):
+        for j in range(x, x+10):
+            mat[i][j]=1  
+print(sum(row.count(1) for row in mat))
+
+
 
 
 
