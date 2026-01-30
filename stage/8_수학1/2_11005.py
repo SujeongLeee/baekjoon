@@ -1,11 +1,4 @@
-n,b = map(int, input().split())
-
-r = ""
-a = n
-while a>0:
-    rest = n%b # 나머지
-    a = n%b
-    r+=str(rest)
-    n = a//b
+n,b = input().split()
+b = int(b)
+for i, digit in enumerate(reversed(n)):
     
-print(r)

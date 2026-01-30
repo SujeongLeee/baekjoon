@@ -1,4 +1,5 @@
 # 진법변환
+# b진법을 10진법으로
 n,b = input().split()
 b = int(b)
 
