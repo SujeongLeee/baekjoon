@@ -18,8 +18,10 @@ for i in range(n):
             where_hole = [i,j]
         elif mat[i][j]=='R':
             where_R = [i,j]
+            mat[i][j] = '.'
         elif mat[i][j]=='B':
             where_B = [i,j]
+            mat[i][j] = '.'
 
 move_count = 0
 ntrial = 10
@@ -33,28 +35,35 @@ for _ in range(ntrial):
         prev_R = where_R.copy()
         prev_B = where_B.copy()
 
-        # 벽이나 다른 문자를 만날때까지 이동, 만나면 멈춤, 가다가 0 있어도 들어가야함
-        while mat[where_R[0]+dy][where_R[1]+dx] not in ['#', 'B']:
+        # 벽을 만날때까지 이동, 만나면 멈춤, 가다가 0 있어도 들어가야함
+        r_count = 0
+        while mat[where_R[0]+dy][where_R[1]+dx] != '#':
             where_R[0] += dy
             where_R[1] += dx
+            r_count += 1
             if where_R == where_hole:
                 R_goal = True
                 break
-            else:
-                mat[prev_R[0]][prev_R[1]]='.'
-                mat[where_R[0]][where_R[1]]='R'
-        
         
         # A, B는 독립적으로 움직이므로
-        while mat[where_B[0]+dy][where_B[1]+dx] not in ['#', 'R']:
+        b_count = 0
+        while mat[where_B[0]+dy][where_B[1]+dx] != '#':
             where_B[0] += dy
             where_B[1] += dx
+            b_count += 1
             if where_B == where_hole:
                 B_goal = True
                 break
+        
+        # 두 구슬이 충돌하면
+        if where_R == where_B and not R_goal and not B_goal:
+            if r_count > b_count:
+                where_R[0] -= dy
+                where_R[1] -= dx
             else:
-                mat[prev_B[0]][prev_B[1]]='.'
-                mat[where_B[0]][where_B[1]]='B'
+                where_B[0] -= dy
+                where_B[1] -= dx
+
 
         if prev_R != where_R or prev_B != where_B:
             move_count += 1
