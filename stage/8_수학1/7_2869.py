@@ -56,10 +56,17 @@ a,b,v=map(int, input().split())
 # print(totdays)
 
 
+# 올림 공식
+# (x+y-1)//y
+# ceil(x/y)
 
+# import math
+# daily_move = a-b
+# at_least = v-a
+# until_last = math.ceil(at_least/daily_move)
+# print(until_last+1)
 
-days_before_last = (v - a + (a - b) - 1) // (a - b)
-days_total = days_before_last + 1
-
-days = (v - a + a - b - 1) // (a - b) + 1
-print(days)
+daily_move = a-b
+at_least = v-a
+until_last = (at_least+daily_move-1)//daily_move
+print(until_last+1)
